@@ -1,6 +1,6 @@
 # Detecting_Emotions
 
-![media image]('images/william-iven-SpVHcbuKi6E-unsplash.jpg')
+![media image](images/william-iven-SpVHcbuKi6E-unsplash.jpg)
 
 I've created a model to help news and entertainment media outlets classify headlines based on the emotions they convey so that they can select the right ones to keep readers interested in their content.
 
