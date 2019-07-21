@@ -70,6 +70,9 @@ def get_labeled_dfs():
 
 # drop the original column and the split columns
 	corpus_df = corpus_df.drop(['<corpus task="affective text">','split','text_with_html_tag', 'text_with_html_tag_split'], axis=1)
+    
+# drop duplicate headlines
+	corpus_df = corpus_df.drop_duplicates(keep='first')
 
 # repeating the procedure with the validation set
 	val_corpus_df = val_corpus_df.drop([250], axis=0)
@@ -78,6 +81,7 @@ def get_labeled_dfs():
 	val_corpus_df['text_with_html_tag_split'] = val_corpus_df.text_with_html_tag.apply((lambda x: x.split("<")))
 	val_corpus_df['text'] = val_corpus_df.text_with_html_tag_split.apply(lambda x: x[0])
 	val_corpus_df = val_corpus_df.drop(['<corpus task="affective text">','split','text_with_html_tag', 'text_with_html_tag_split'], axis=1)
+	val_corpus_df = val_corpus_df.drop_duplicates(keep='first')
 
 
 
