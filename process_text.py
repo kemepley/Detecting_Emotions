@@ -41,6 +41,12 @@ def lemmatize(row):
         new_row.append(i.lemma_)
     return ' '.join(new_row)
 
+def remove_numbers(row):
+
+    '''A function that finds all numbers a row and removes them.''' 
+    
+    return row.translate(str.maketrans('', '', string.digits))
+
 class Process_Text_Data:
     
     def __init__(self):
@@ -54,6 +60,7 @@ class Process_Text_Data:
         if RNN==False:
             data[col] = data[col].apply(remove_stopword)
             data[col] = data[col].apply(lemmatize)
+            data[col] = data[col].apply(remove_numbers)
 
 
     
