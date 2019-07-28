@@ -1,7 +1,5 @@
 import tarfile
-import string
 import pandas as pd
-
 
 
 def emotion_labels(row):
@@ -40,13 +38,13 @@ def get_labeled_dfs():
 	valence_df.columns = ['valence']
 
 	emotion_df = emotion_df.drop([0], axis=1)
-	emotion_df.columns = ['anger', 'disgust', 'fear', 'joy', 'sadness', 'surprise']
+	emotion_df.columns = ['anger', 'disgust', 'fear', 'joy', 'sadness', 'suprise']
 
 	valence_df_2 = valence_df_2.drop([0], axis=1)
 	valence_df_2.columns = ['valence']
 
 	emotion_df_2 = emotion_df_2.drop([0], axis=1)
-	emotion_df_2.columns = ['anger', 'disgust', 'fear', 'joy', 'sadness', 'surprise']
+	emotion_df_2.columns = ['anger', 'disgust', 'fear', 'joy', 'sadness', 'suprise']
 
 # putting the dfs together
 	valence_df = pd.concat([valence_df, valence_df_2], axis=0, ignore_index=True)
@@ -74,13 +72,13 @@ def get_labeled_dfs():
 
 # preparing class labels for the emotion dfs
 # setting up a target colum with a numeric category for the emotion with the strongest intensity rating
-	emotion_df['max'] = emotion_df[['anger', 'disgust', 'fear', 'joy', 'sadness', 'surprise']].idxmax(axis=1)
+	emotion_df['max'] = emotion_df[['anger', 'disgust', 'fear', 'joy', 'sadness', 'suprise']].idxmax(axis=1)
 	emotion_df['anger_label'] = emotion_df['anger'].apply(emotion_labels)
 	emotion_df['disgust_label'] = emotion_df['disgust'].apply(emotion_labels)
 	emotion_df['fear_label'] = emotion_df['fear'].apply(emotion_labels)
 	emotion_df['joy_label'] = emotion_df['joy'].apply(emotion_labels)
 	emotion_df['sadness_label'] = emotion_df['sadness'].apply(emotion_labels)
-	emotion_df['surprise_label'] = emotion_df['surprise'].apply(emotion_labels)
+	emotion_df['suprise_label'] = emotion_df['suprise'].apply(emotion_labels)
 
 
 
